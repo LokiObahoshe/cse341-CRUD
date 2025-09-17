@@ -1,0 +1,38 @@
+[
+    {
+        "pet_id": 1,
+        "name": "Buddy",
+        "gender": "Female",
+        "age": "Old",
+        "houseTrained": "Yes",
+        "species": "Dog",
+        "favFood": "Beef"
+    },
+    {
+        "pet_id": 2,
+        "name": "Whiskers",
+        "gender": "Male",
+        "age": "Young",
+        "houseTrained": "Yes",
+        "species": "Cat",
+        "favFood": "Fish"
+    },
+    {
+        "pet_id": 3,
+        "name": "Coco",
+        "gender": "Female",
+        "age": "Adult",
+        "houseTrained": "No",
+        "species": "Rabbit",
+        "favFood": "Carrots"
+    },
+    {
+        "pet_id": 4,
+        "name": "Max",
+        "gender": "Male",
+        "age": "Puppy",
+        "houseTrained": "No",
+        "species": "Dog",
+        "favFood": "Chicken"
+    }
+]
