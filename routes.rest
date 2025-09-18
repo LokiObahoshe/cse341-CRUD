@@ -1,0 +1,46 @@
+### Get all
+GET http://localhost:3000/pets
+
+### Create pet
+
+POST http://localhost:3000/pets HTTP/1.1
+content-type: application/json
+
+{
+    "pet_id": 5,
+    "name": "Milo",
+    "gender": "Male",
+    "age": "Young",
+    "houseTrained": "No",
+    "species": "Cat",
+    "favFood": "Tuna"
+}
+
+### Update/Replace Pet info (Max = Luna)
+PUT http://localhost:3000/pets/68cb24d932df5f61bf59d24d HTTP/1.1
+content-type: application/json
+
+{
+  "pet_id": 4,
+  "name": "Luna",
+  "gender": "Female",
+  "age": "Adult",
+  "houseTrained": "No",
+  "species": "Cat",
+  "favFood": "Tuna"
+}
+
+
+### Update/Replace Pet info (Luna = Max)
+PUT http://localhost:3000/pets/68cb24d932df5f61bf59d24d HTTP/1.1
+content-type: application/json
+
+{
+    "pet_id": 4,
+    "name": "Max",
+    "gender": "Male",
+    "age": "Puppy",
+    "houseTrained": "No",
+    "species": "Dog",
+    "favFood": "Chicken"
+}

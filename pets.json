@@ -34,5 +34,14 @@
         "houseTrained": "No",
         "species": "Dog",
         "favFood": "Chicken"
+    },
+    {
+        "pet_id": 5,
+        "name": "Luna",
+        "gender": "Female",
+        "age": "Adult",
+        "houseTrained": "No",
+        "species": "Cat",
+        "favFood": "Tuna"
     }
 ]
