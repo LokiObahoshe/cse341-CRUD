@@ -25,7 +25,7 @@ const savePet = (req, res, next) => {
 
 const saveOwner = (req, res, next) => {
     const validationRule = {
-        name: 'required|string',
+        ownerName: 'required|string',
         gender: 'string',
         age: 'required|string',
         petOwned: 'required|string'
