@@ -13,13 +13,11 @@ const initDb = async (callback) => {
     }
 
     try {
-        // Connect to pets DB
         const petsClient = await MongoClient.connect(process.env.MONGODB_URL_PETS);
-        petsDb = petsClient.db(); // will default to "pets" from URL
+        petsDb = petsClient.db();
 
-        // Connect to owners DB
         const ownersClient = await MongoClient.connect(process.env.MONGODB_URL_OWNERS);
-        ownersDb = ownersClient.db(); // will default to "owners" from URL
+        ownersDb = ownersClient.db();
 
         console.log('Both databases connected successfully.');
         callback(null, { petsDb, ownersDb });
