@@ -3,7 +3,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
     //#swagger.tags=['Pets - Get All']
-    const result = await mongodb.getDatabase().db().collection('pets').find();
+    const result = await mongodb.getPetsDb().collection('pets').find();
     result.toArray().then((pets) => {
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(pets);
@@ -17,7 +17,7 @@ const getSingle = async (req, res) => {
             res.status(400).json('Must use a valid pet id to find a pet.');
         }
         const petId = new ObjectId(req.params.id);
-        const result = await mongodb.getDatabase().db().collection('pets').find({ _id: petId });
+        const result = await mongodb.getPetsDb().collection('pets').find({ _id: petId });
         result.toArray().then((pets) => {
             res.setHeader('Content-Type', 'application/json');
             res.status(200).json(pets[0]);
@@ -43,7 +43,7 @@ const createPet = async (req, res) => {
             species: req.body.species,
             favFood: req.body.favFood
         };
-        const result = await mongodb.getDatabase().db().collection('pets').insertOne(pet);
+        const result = await mongodb.getPetsDb().collection('pets').insertOne(pet);
         //result.acknowledged = false;
         if (result.acknowledged) {
             return res.status(201).json({ message: 'Pet created successfully', petId: result.insertedId });
@@ -75,7 +75,7 @@ const updatePet = async (req, res) => {
             species: req.body.species,
             favFood: req.body.favFood
         };
-        const result = await mongodb.getDatabase().db().collection('pets').replaceOne({ _id: petId }, pet);
+        const result = await mongodb.getPetsDb().collection('pets').replaceOne({ _id: petId }, pet);
         //result.acknowledged = false;
         if (result.modifiedCount > 0) {
             return res.status(201).json({ message: 'Pet updated successfully', petId: result.insertedId });
@@ -94,7 +94,7 @@ const deletePet = async (req, res) => {
             return res.status(400).json('Must use a valid pet id to delete a pet.');
         }
         const petId = new ObjectId(req.params.id);
-        const result = await mongodb.getDatabase().db().collection('pets').deleteOne({ _id: petId });
+        const result = await mongodb.getPetsDb().collection('pets').deleteOne({ _id: petId });
         //result.acknowledged = false;
         if (result.deletedCount > 0) {
             return res.status(201).json({ message: 'Pet deleted successfully', petId: result.insertedId });

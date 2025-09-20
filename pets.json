@@ -1,6 +1,6 @@
 [
     {
-        "pet_id": 1,
+        "pet_id": "1",
         "name": "Buddy",
         "gender": "Female",
         "age": "Old",
@@ -9,7 +9,7 @@
         "favFood": "Beef"
     },
     {
-        "pet_id": 2,
+        "pet_id": "2",
         "name": "Whiskers",
         "gender": "Male",
         "age": "Young",
@@ -18,7 +18,7 @@
         "favFood": "Fish"
     },
     {
-        "pet_id": 3,
+        "pet_id": "3",
         "name": "Coco",
         "gender": "Female",
         "age": "Adult",
@@ -27,7 +27,7 @@
         "favFood": "Carrots"
     },
     {
-        "pet_id": 4,
+        "pet_id": "4",
         "name": "Max",
         "gender": "Male",
         "age": "Puppy",
@@ -36,7 +36,7 @@
         "favFood": "Chicken"
     },
     {
-        "pet_id": 5,
+        "pet_id": "5",
         "name": "Luna",
         "gender": "Female",
         "age": "Adult",

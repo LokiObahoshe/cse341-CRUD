@@ -1,0 +1,14 @@
+[
+    {
+        "ownerName": "William",
+        "gender": "Male",
+        "age": "34",
+        "petOwned": "Buddy"
+    },
+    {
+        "ownerName": "Mrs Afton",
+        "gender": "Woman",
+        "age": "40",
+        "petOwned": "Whiskers"
+    }
+]

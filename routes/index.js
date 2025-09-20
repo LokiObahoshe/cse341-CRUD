@@ -7,5 +7,6 @@ router.get('/', (req, res) => {
 });
 
 router.use('/pets', require('./pets'));
+router.use('/owners', require('./owners'));
 
 module.exports = router;

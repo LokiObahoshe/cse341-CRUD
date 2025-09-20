@@ -23,6 +23,27 @@ const savePet = (req, res, next) => {
     });
 };
 
+const saveOwner = (req, res, next) => {
+    const validationRule = {
+        name: 'required|string',
+        gender: 'string',
+        age: 'required|string',
+        petOwned: 'required|string'
+    };
+    validator(req.body, validationRule, {}, (err, status) => {
+        if (!status) {
+            res.status(500).send({
+                success: false,
+                message: 'Validation failed',
+                data: err
+            });
+        } else {
+            next();
+        }
+    });
+};
+
 module.exports = {
-    savePet
+    savePet,
+    saveOwner
 };

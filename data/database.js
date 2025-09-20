@@ -1,33 +1,49 @@
 const dotenv = require('dotenv');
 dotenv.config();
 
-const MongoClient = require('mongodb').MongoClient;
+const { MongoClient } = require('mongodb');
 
-let database;
+let petsDb;
+let ownersDb;
 
-const initDb = (callback) => {
-    if (database) {
-        console.log('Db is already initialized!');
-        return callback(null, database);
+const initDb = async (callback) => {
+    if (petsDb && ownersDb) {
+        console.log('Databases are already initialized!');
+        return callback(null, { petsDb, ownersDb });
     }
-    MongoClient.connect(process.env.MONGODB_URL)
-        .then((client) => {
-            database = client;
-            callback(null, database);
-        })
-        .catch((err) => {
-            callback(err);
-        });
+
+    try {
+        // Connect to pets DB
+        const petsClient = await MongoClient.connect(process.env.MONGODB_URL_PETS);
+        petsDb = petsClient.db(); // will default to "pets" from URL
+
+        // Connect to owners DB
+        const ownersClient = await MongoClient.connect(process.env.MONGODB_URL_OWNERS);
+        ownersDb = ownersClient.db(); // will default to "owners" from URL
+
+        console.log('Both databases connected successfully.');
+        callback(null, { petsDb, ownersDb });
+    } catch (err) {
+        callback(err);
+    }
 };
 
-const getDatabase = () => {
-    if (!database) {
-        throw Error('Database not initialized')
+const getPetsDb = () => {
+    if (!petsDb) {
+        throw Error('Pets database not initialized');
     }
-    return database;
-}
+    return petsDb;
+};
+
+const getOwnersDb = () => {
+    if (!ownersDb) {
+        throw Error('Owners database not initialized');
+    }
+    return ownersDb;
+};
 
 module.exports = {
     initDb,
-    getDatabase
-}
+    getPetsDb,
+    getOwnersDb
+};
