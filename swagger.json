@@ -233,12 +233,6 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": {
-                  "example": "any"
-                },
-                "owner_id": {
-                  "example": "any"
-                },
                 "ownerName": {
                   "example": "any"
                 },
@@ -315,12 +309,6 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": {
-                  "example": "any"
-                },
-                "owner_id": {
-                  "example": "any"
-                },
                 "ownerName": {
                   "example": "any"
                 },

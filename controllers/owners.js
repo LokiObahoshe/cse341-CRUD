@@ -30,8 +30,8 @@ const getSingle = async (req, res) => {
 const createOwner = async (req, res) => {
     //#swagger.tags=['Owners - Create Owner']
     try {
-        if (!req.body.name || !req.body.owner_id) {
-            return res.status(400).json({ message: 'Missing required fields: name and owner_id are required.' });
+        if (!req.body.ownerName) {
+            return res.status(400).json({ message: 'Missing required fields: ownerName is required.' });
         }
 
         const owner = {
@@ -55,8 +55,8 @@ const createOwner = async (req, res) => {
 const updateOwner = async (req, res) => {
     //#swagger.tags=['Owners - Update Owner']
     try {
-        if (!req.body.name || !req.body.owner_id) {
-            return res.status(400).json({ message: 'Missing required fields: name and owner_id are required.' });
+        if (!req.body.ownerName) {
+            return res.status(400).json({ message: 'Missing required fields: ownerName is required.' });
         }
 
         if (!ObjectId.isValid(req.params.id)) {
